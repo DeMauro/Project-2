@@ -14,7 +14,7 @@
       integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="static/css/style.css" />
     <title>Cars</title>
   </head>
   <body>
@@ -31,47 +31,52 @@
           <!-- Form (bootstrap boiler plate for now) -->
           <form>
             <div class="form-group">
-              <label for="exampleFormControlInput1">Email address</label>
-              <input
-                type="email"
-                class="form-control"
-                id="exampleFormControlInput1"
-                placeholder="name@example.com"
-              />
-            </div>
-            <div class="form-group">
-              <label for="exampleFormControlSelect1">Example select</label>
+              <label for="exampleFormControlSelect1">Make</label>
               <select class="form-control" id="exampleFormControlSelect1">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
+                <option>Ford</option>
+                <option>Hyundai</option>
+                <option>BMW</option>
+                <option>Honda</option>
+                <option>Lexus</option>
               </select>
             </div>
             <div class="form-group">
-              <label for="exampleFormControlSelect2"
-                >Example multiple select</label
-              >
-              <select
-                multiple
-                class="form-control"
-                id="exampleFormControlSelect2"
-              >
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
+              <label for="exampleFormControlSelect1">Model</label>
+              <select class="form-control" id="exampleFormControlSelect1">
+                <option>Mustang</option>
+                <option>F150</option>
+                <option>Taurus</option>
+                <option>Escape</option>
+                <option>Galaxie</option>
               </select>
             </div>
             <div class="form-group">
-              <label for="exampleFormControlTextarea1">Example textarea</label>
-              <textarea
-                class="form-control"
-                id="exampleFormControlTextarea1"
-                rows="3"
-              ></textarea>
+              <label for="exampleFormControlSelect1">Year</label>
+              <select class="form-control" id="exampleFormControlSelect1">
+                <option>1972</option>
+                <option>2015</option>
+                <option>1986</option>
+                <option>2014</option>
+                <option>1963</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlSelect1">Transmission</label>
+              <select class="form-control" id="exampleFormControlSelect1">
+                <option>manual 3-spd</option>
+                <option>automatic 3-spd</option>
+                <option>automatic 4-spd</option>
+                <option>manual 4-spd</option>
+                <option>manual 5-spd</option>
+              </select>
+            </div>
+                        <div class="form-group">
+              <label for="exampleFormControlSelect1">Drive</label>
+              <select class="form-control" id="exampleFormControlSelect1">
+                <option>rear-wheel drive</option>
+                <option>front-wheel drive</option>
+                <option>4-wheel or all-wheel drive</option>
+              </select>
             </div>
           </form>
         </div>
@@ -85,18 +90,35 @@
           <div class="row">
             <div class="col-sm-6">
               <section id="viz-two" class="drop-shadow">
-                <h3>viz2 goes here</h3>
+                <!-- <h3>viz2 goes here</h3> -->
               </section>
             </div>
             <div class="col-sm-6">
               <section id="viz-three" class="drop-shadow">
-                <h3>viz3 goes here</h3>
+                <!-- <h3>viz3 goes here</h3> -->
               </section>
             </div>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.css" />
+    <!-- Plotly -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <!-- API key -->
+    <script type="text/javascript" src="static/js/config.js"></script>
+    <!-- Leaflet JavaScript -->
+    <script src="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
+    <!-- D3 CDN -->
+    <script src="https://d3js.org/d3.v5.min.js"></script>    
+    <!-- Our JavaScript -->
+    <script type="text/javascript" src="static/js/logic.js"></script>
+    <!-- D3 CDN -->
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script

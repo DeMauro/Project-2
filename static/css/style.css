@@ -16,7 +16,8 @@ body {
 }
 .right-main-content {
   /* background-image: url("http://www.latoro.com/wallpapers/black-and-white/17227-desktop-wallpapers-car.jpg"); */
-  background-image: url("https://www.mewallpaper.com/thumbnail/cars/9163-bmw-background-free-download-wallpaper-hq.jpg");
+  /* background-image: url("https://www.mewallpaper.com/thumbnail/cars/9163-bmw-background-free-download-wallpaper-hq.jpg"); */
+  background-image: url("https://www.mewallpaper.com//thumbnail/cars/7602-mustang-hot-rod-car-hd-image-free-wallpaper.jpg");  
   height: 100vh;
 }
 #map {
@@ -26,7 +27,7 @@ body {
   border: 1px solid black;
   border-radius: 9px;
   background-color: white;
-  opacity: 0.7;
+  opacity: 0.9;
 }
 #viz-two {
   margin: 25px 50px 25px 75px;
