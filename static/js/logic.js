@@ -11,6 +11,8 @@ L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
   accessToken: API_KEY
 }).addTo(myMap)
 
+console.log(API_KEY)
+
 // Bar chat (thin) for Avg cost by model
 var data = [{
   type: 'bar',

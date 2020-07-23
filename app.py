@@ -8,7 +8,7 @@ app = Flask(__name__)
 # Connection to SQL Database
 conn = MySQLdb.connect("localhost","postgres","Family34","Project2")
 cursor = conn.cursor()
-
+ 
 
 # create route that renders index.html template
 @app.route("/")
