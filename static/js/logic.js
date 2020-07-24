@@ -1,3 +1,10 @@
+// d3.json("http://127.0.0.1:5000/").then((data)=> {
+//   data.forEach(function(data) {
+//     d3.select("#exampleFormControlSelect1").append("option").text(data[0]).property(data[0]);
+// });
+
+// })
+
 // Map For craig's Lis Pins
 var myMap = L.map("map", {
   center: [37.0902, -95.7129],
@@ -11,7 +18,7 @@ L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
   accessToken: API_KEY
 }).addTo(myMap)
 
-console.log(API_KEY)
+// console.log(API_KEY)
 
 // Bar chat (thin) for Avg cost by model
 var data = [{

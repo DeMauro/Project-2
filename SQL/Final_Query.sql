@@ -59,4 +59,8 @@ REFERENCES "gas_cost" ("state");
 /* I was getting thrown an error about an int out of range */
 ALTER TABLE "craigs_list" ALTER COLUMN "craigslist_price" TYPE BIGINT;
 
-SELECT * FROM craigs_list
+SELECT * FROM cars
+
+SELECT cl.Make, cl.Model, cl.Year, cl.craigslist_price, cl.lat, cl.lng, c.mpg 
+FROM craigs_list cl JOIN cars c on cl.make = c.make AND cl.model = c.model AND cl.year = c.year
+ORDER BY cl.Make DESC
