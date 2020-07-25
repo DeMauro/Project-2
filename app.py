@@ -8,8 +8,8 @@ app = Flask(__name__)
 CORS(app)
 
 #Postgres credientials CHANGE USERNAME AND PASSWORD TO YOURS
-connection = psycopg2.connect(user="tj",
-                                  password="yourpass",
+connection = psycopg2.connect(user="postgres",
+                                  password="Idontlikemondays",
                                   host="127.0.0.1",
                                   port="5432",
                                   database="Project2")
@@ -36,9 +36,7 @@ def example():
         car_dics["mpg"]= record[6]
         car_data.append(car_dics.copy())
 
-    return render_template("index.html",car_data=car_data)
-    
-    
+    return render_template("index.html",car_data=car_data)    
 
 
 if __name__ == "__main__":
