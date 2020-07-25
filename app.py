@@ -36,7 +36,10 @@ def example():
         car_dics["mpg"]= record[6]
         car_data.append(car_dics.copy())
 
-    return jsonify(car_data)
+    return render_template("index.html",car_data=car_data)
+    
+    
+
 
 if __name__ == "__main__":
     app.run(debug=True)

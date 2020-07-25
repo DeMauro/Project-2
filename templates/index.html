@@ -41,13 +41,13 @@
               </select>
             </div>
             <div class="form-group">
-              <label for="exampleFormControlSelect1">Model</label>
+              <label for="exampleFormControlSelect2">Model</label>
               <select class="form-control" id="exampleFormControlSelect2">
                 <option></option>
               </select>
             </div>
             <div class="form-group">
-              <label for="exampleFormControlSelect1">Year</label>
+              <label for="exampleFormControlSelect3">Year</label>
               <select class="form-control" id="exampleFormControlSelect3">
                 <option></option>
               </select>
@@ -95,8 +95,7 @@
       </div>
     </div>
 
-
-
+  
     <!-- LoDash -->
     <!-- <script src="lodash.js"></script> -->
     <!-- Leaflet CSS -->
@@ -109,9 +108,15 @@
     <!-- Leaflet JavaScript -->
     <script src="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
     <!-- D3 CDN -->
-    <script src="https://d3js.org/d3.v5.min.js"></script>    
+    <script src="https://d3js.org/d3.v5.min.js"></script>   
+    
+
+    <script>
+        var myData = JSON.parse(`{{ car_data | tojson | safe }}`);
+    </script>
     <!-- Our JavaScript -->
     <script type="text/javascript" src="static/js/logic.js"></script>
+
     <!-- D3 CDN -->
     <script src="https://d3js.org/d3.v5.min.js"></script>
 
@@ -132,5 +137,6 @@
       integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
       crossorigin="anonymous"
     ></script>
+    
   </body>
 </html>
