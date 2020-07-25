@@ -1,33 +1,61 @@
+<<<<<<< HEAD
 var filters = {};
 
 function updateFilters() {
   var changedElement = d3.selectAll("#exampleFormControlSelect1").select("option");
+=======
+var uniqueMake = d3.map(myData, function(d){return d["Make"];}).keys();
+  
+d3.select("#exampleFormControlSelect1").selectAll("option")
+  .data(uniqueMake.map(d => d))
+  .enter()
+  .append("option")
+  .text(function(d){return d;})
+  .attr("value",function(d){return d;});
+
+var filters = {};
+
+function updateFilters() {
+  var changedElement = d3.select(this)
+>>>>>>> 845f2a6e7d1d9c3c9315f1c154cb8b1cf380f52f
   var elementValue = changedElement.property("value");
   var filterId = changedElement.attr("id");
 
   if (elementValue) {
+<<<<<<< HEAD
     console.log(elementValue);
+=======
+    console.log(elementValue)
+>>>>>>> 845f2a6e7d1d9c3c9315f1c154cb8b1cf380f52f
     filters[filterId] = elementValue;
+    console.log(filters)
   }
+    
   else {
     delete filters[filterId];
   }
-
   filterData();
 }
 
 function filterData() {
   let filteredData = myData;
-
+  //console.log(filteredData)
   Object.entries(filters).forEach(([key, value]) => {
-    filteredData = filteredData.filter(row => row[key] === value);
+    filteredData = filteredData.filter(row => row[key] === "jeep");
   });
+<<<<<<< HEAD
 
   console.log(filteredData);
+=======
+  console.log(filteredData)
+  return filteredData;
+  
+>>>>>>> 845f2a6e7d1d9c3c9315f1c154cb8b1cf380f52f
 }
 
 var data = filterData();
 
+<<<<<<< HEAD
 d3.select("#exampleFormControlSelect1").on("change", updateFilters());
 
 uniqueMake = d3.map(myData, function(d){return d["Make"];}).keys();
@@ -41,6 +69,14 @@ d3.select("#exampleFormControlSelect1").selectAll("option")
   
     console.log(updateFilters())
   
+=======
+//console.log(data);
+
+d3.select("#exampleFormControlSelect1").on("change", updateFilters);  
+
+
+
+>>>>>>> 845f2a6e7d1d9c3c9315f1c154cb8b1cf380f52f
     // d3.select("#exampleFormControlSelect2").selectAll("option")
     // .data(d3.map(car_data, function(d){return d["Model"];}).keys())
     // .enter()
