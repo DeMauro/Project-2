@@ -1,25 +1,12 @@
-
-// d3.json("http://127.0.0.1:5000/").then(function(car_data, err) {
-//   if (err) throw err;
-
-
-  // // parse data
-  // allLats = car_data.map( function(d) { return d["lat"] });
-  // allLngs = car_data.map( function(d) { return d["lng"] });
-  // allPrice = car_data.map( function(d) { return d["craigslist_price"] });
-  // allMake = car_data.map( function(d) { return d["Make"] });
-  // allModel = car_data.map( function(d) { return d["Model"] });
-  // allYear = car_data.map( function(d) { return d["Year"] });
-  // allMPG = car_data.map( function(d) { return d["mpg"] });
-
 var filters = {};
 
 function updateFilters() {
-  var changedElement = d3.select(this).select("option");
+  var changedElement = d3.selectAll("#exampleFormControlSelect1").select("option");
   var elementValue = changedElement.property("value");
   var filterId = changedElement.attr("id");
 
   if (elementValue) {
+    console.log(elementValue);
     filters[filterId] = elementValue;
   }
   else {
@@ -36,25 +23,23 @@ function filterData() {
     filteredData = filteredData.filter(row => row[key] === value);
   });
 
-  return filteredData;
+  console.log(filteredData);
 }
-
-
 
 var data = filterData();
 
-console.log(data);
+d3.select("#exampleFormControlSelect1").on("change", updateFilters());
 
-d3.select("#exampleFormControlSelect1").on("change", updateFilters);
+uniqueMake = d3.map(myData, function(d){return d["Make"];}).keys();
 
-  uniqueMake = d3.map(myData, function(d){return d["Make"];}).keys();
-
-  d3.select("#exampleFormControlSelect1").selectAll("option")
-    .data(uniqueMake.map(d => d))
-    .enter()
-    .append("option")
-    .text(function(d){return d;})
-    .attr("value",function(d){return d;});
+d3.select("#exampleFormControlSelect1").selectAll("option")
+  .data(uniqueMake.map(d => d))
+  .enter()
+  .append("option")
+  .text(function(d){return d;})
+  .attr("value",function(d){return d;});
+  
+    console.log(updateFilters())
   
     // d3.select("#exampleFormControlSelect2").selectAll("option")
     // .data(d3.map(car_data, function(d){return d["Model"];}).keys())
