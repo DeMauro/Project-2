@@ -7,6 +7,11 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
+    <!-- Google Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Righteous&display=swap"
+      rel="stylesheet"
+    />
     <!-- Bootstrap CSS -->
     <link
       rel="stylesheet"
@@ -16,24 +21,38 @@
     />
     <link rel="stylesheet" href="/static/css/style.css" />
     <title>Cars</title>
-  <!-- Marker Cluster CSS -->
-  <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.0.3/dist/MarkerCluster.css">
-  <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.0.3/dist/MarkerCluster.Default.css">
-
-  
+    <!-- Marker Cluster CSS -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://unpkg.com/leaflet.markercluster@1.0.3/dist/MarkerCluster.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://unpkg.com/leaflet.markercluster@1.0.3/dist/MarkerCluster.Default.css"
+    />
   </head>
   <body>
     <div class="container-fluid">
       <!-- Top header / Navbar -->
-      <nav class="navbar navbar-dark bg-dark drop-shadow">
+      <!-- <nav class="navbar navbar-dark bg-dark drop-shadow">
         <a class="navbar-brand" href="#">Navbar</a>
         <h2 class="text-white text-center">Here's our Car Page heading</h2>
-      </nav>
+      </nav> -->
       <!-- Two Column layout -->
       <div class="row">
         <!-- Left Sidebar -->
         <div class="col-sm-2 left-sidebar drop-shadow">
-          <!-- Form (bootstrap boiler plate for now) -->
+          <h2 class="logo-font">Group Name</h2>
+          <img
+            src="https://www.easirent.com/home2018/img/ico-car.png"
+            alt="logo"
+            width="95%"
+          />
+          <br />
+          <br />
+          <!-- Form -->
           <form>
             <div class="form-group">
               <label for="exampleFormControlSelect1">Make</label>
@@ -63,14 +82,14 @@
             </section>
           </div>
           <div class="row">
-            <div class="col-sm-6">
-              <section id="viz-two" class="drop-shadow">
-                <!-- <h3>viz2 goes here</h3> -->
-              </section>
-            </div>
-            <div class="col-sm-6">
+            <div class="col-sm-4">
               <section id="viz-three" class="drop-shadow">
                 <!-- <h3>viz3 goes here</h3> -->
+              </section>
+            </div>
+            <div class="col-sm-8">
+              <section id="viz-two" class="drop-shadow">
+                <!-- <h3>viz2 goes here</h3> -->
               </section>
             </div>
           </div>
@@ -78,11 +97,13 @@
       </div>
     </div>
 
-  
     <!-- LoDash -->
     <!-- <script src="lodash.js"></script> -->
     <!-- Leaflet CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.css"
+    />
     <!-- Plotly -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
@@ -91,15 +112,17 @@
     <!-- Leaflet JavaScript -->
     <script src="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
     <!-- D3 CDN -->
-    <script src="https://d3js.org/d3.v5.min.js"></script>   
+    <script src="https://d3js.org/d3.v5.min.js"></script>
     <!-- Marker Cluster JS -->
-    <script type="text/javascript" src="https://unpkg.com/leaflet.markercluster@1.0.3/dist/leaflet.markercluster.js"></script>
-    
+    <script
+      type="text/javascript"
+      src="https://unpkg.com/leaflet.markercluster@1.0.3/dist/leaflet.markercluster.js"
+    ></script>
 
     <script>
-        var myData = JSON.parse(`{{ car_data | tojson | safe }}`);
+      var myData = JSON.parse(`{{ car_data | tojson | safe }}`);
     </script>
-        <!-- Our JavaScript -->
+    <!-- Our JavaScript -->
     <script type="text/javascript" src="static/js/logic.js"></script>
 
     <!-- D3 CDN -->
@@ -122,6 +145,5 @@
       integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
       crossorigin="anonymous"
     ></script>
-    
   </body>
 </html>

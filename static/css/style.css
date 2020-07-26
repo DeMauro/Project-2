@@ -1,14 +1,23 @@
 body {
   background-color: #585858;
 }
+label {
+  color: white;
+}
+.logo-font {
+  color: white;
+  font-family: "Alfa Slab One", cursive;
+  font-size: 32px;
+  /* font-family: 'Righteous', cursive; */
+}
 .drop-shadow {
   -webkit-box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
   -moz-box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
   box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
 }
 .left-sidebar {
-  background-color: #afafaf;
-  /* background-image: url("https://st.depositphotos.com/3538103/5118/i/450/depositphotos_51183985-stock-photo-3d-car-model-on-a.jpg"); */
+  background-color: #252525;
+  padding-top: 35px;
   height: 100vh;
   -webkit-box-shadow: 10px 3px 5px 0px rgba(175, 175, 175, 1);
   -moz-box-shadow: 10px 3px 5px 0px rgba(175, 175, 175, 1);
@@ -17,7 +26,7 @@ body {
 .right-main-content {
   /* background-image: url("http://www.latoro.com/wallpapers/black-and-white/17227-desktop-wallpapers-car.jpg"); */
   /* background-image: url("https://www.mewallpaper.com/thumbnail/cars/9163-bmw-background-free-download-wallpaper-hq.jpg"); */
-  background-image: url("https://www.mewallpaper.com//thumbnail/cars/7602-mustang-hot-rod-car-hd-image-free-wallpaper.jpg");  
+  background-image: url("https://www.mewallpaper.com//thumbnail/cars/7602-mustang-hot-rod-car-hd-image-free-wallpaper.jpg");
   height: 100vh;
 }
 #map {
@@ -30,20 +39,24 @@ body {
   opacity: 0.9;
 }
 #viz-two {
-  margin: 25px 50px 25px 75px;
-  min-height: 30vh;
+  margin: 25px 75px 25px 50px;
+  min-height: 35vh;
+  max-height: 35vh;
+  overflow: scroll;
   width: 90%;
   border: 1px solid black;
   border-radius: 9px;
   background-color: white;
   opacity: 0.7;
+  padding: 9px;
 }
 #viz-three {
-  margin: 25px 75px 25px 50px;
-  min-height: 30vh;
+  margin: 25px 50px 25px 75px;
+  min-height: 35vh;
   width: 90%;
   border: 1px solid black;
   border-radius: 9px;
   background-color: white;
   opacity: 0.7;
+  padding: 9px;
 }
