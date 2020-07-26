@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-var filters = {};
-
-function updateFilters() {
-  var changedElement = d3.selectAll("#exampleFormControlSelect1").select("option");
-=======
 var uniqueMake = d3.map(myData, function(d){return d["Make"];}).keys();
 
 d3.select("#exampleFormControlSelect1").selectAll("option")
@@ -17,7 +11,6 @@ var filters = {};
 
 function updateFilters() {
   var changedElement = d3.select(this)
->>>>>>> 845f2a6e7d1d9c3c9315f1c154cb8b1cf380f52f
   var elementValue = changedElement.property("value");
 <<<<<<< HEAD
   var filterId = changedElement.attr("id");
@@ -44,16 +37,12 @@ function filterData() {
   Object.entries(filters).forEach(([key, value]) => {
     filteredData = filteredData.filter(row => row[key] === "jeep");
   });
-<<<<<<< HEAD
+
 
   console.log(filteredData);
-=======
   console.log(filteredData)
   return filteredData;
   
->>>>>>> 845f2a6e7d1d9c3c9315f1c154cb8b1cf380f52f
-}
-=======
   var filteredData = myData;  
   filteredData = filteredData.filter(row => row["Make"] === elementValue);
  
