@@ -16,6 +16,11 @@
     />
     <link rel="stylesheet" href="/static/css/style.css" />
     <title>Cars</title>
+  <!-- Marker Cluster CSS -->
+  <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.0.3/dist/MarkerCluster.css">
+  <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.0.3/dist/MarkerCluster.Default.css">
+
+  
   </head>
   <body>
     <div class="container-fluid">
@@ -48,31 +53,13 @@
                 <option>Select Make</option>
               </select>
             </div>
-            <!-- <div class="form-group">
-              <label for="exampleFormControlSelect1">Transmission</label>
-              <select class="form-control" id="exampleFormControlSelect4">
-                <option>manual 3-spd</option>
-                <option>automatic 3-spd</option>
-                <option>automatic 4-spd</option>
-                <option>manual 4-spd</option>
-                <option>manual 5-spd</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="exampleFormControlSelect1">Drive</label>
-              <select class="form-control" id="exampleFormControlSelect5">
-                <option>rear-wheel drive</option>
-                <option>front-wheel drive</option>
-                <option>4-wheel or all-wheel drive</option>
-              </select>
-            </div> -->
           </form>
         </div>
         <!-- main-content, right side for data vis -->
         <div class="col-sm-10 right-main-content">
           <div class="row">
             <section id="map" class="drop-shadow">
-              <h3>map goes here</h3>
+              <!-- <h3>map goes here</h3> -->
             </section>
           </div>
           <div class="row">
@@ -105,12 +92,14 @@
     <script src="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
     <!-- D3 CDN -->
     <script src="https://d3js.org/d3.v5.min.js"></script>   
+    <!-- Marker Cluster JS -->
+    <script type="text/javascript" src="https://unpkg.com/leaflet.markercluster@1.0.3/dist/leaflet.markercluster.js"></script>
     
 
     <script>
         var myData = JSON.parse(`{{ car_data | tojson | safe }}`);
     </script>
-    <!-- Our JavaScript -->
+        <!-- Our JavaScript -->
     <script type="text/javascript" src="static/js/logic.js"></script>
 
     <!-- D3 CDN -->
