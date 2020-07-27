@@ -8,8 +8,8 @@ app = Flask(__name__)
 CORS(app)
 
 # Postgres credientials CHANGE USERNAME AND PASSWORD TO YOURS
-connection = psycopg2.connect(user="imac",
-                              password="Marsha!1",
+connection = psycopg2.connect(user="USER",
+                              password="PASSWORD",
                               host="127.0.0.1",
                               port="5432",
                               database="Project2")
