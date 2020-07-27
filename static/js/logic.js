@@ -48,7 +48,7 @@ var layout = {
 };
 Plotly.newPlot("viz-two", data, layout);
 
-var uniqueMake = d3.map(myData, function(d){return d["Make"];}).keys();
+var uniqueMake = d3.map(myData, function(d){return d["Make"];}).keys().sort(d3.ascending);
 
 d3.select("#exampleFormControlSelect1").selectAll("option")
   .data(uniqueMake.map(d => d))
@@ -62,7 +62,7 @@ function selectedMake() {
   var elementValue = d3.select(this).property("value");
   var filteredData = myData.filter(row => row["Make"] === elementValue);
  
-  var uniqueModel = d3.map(filteredData, function(d){return d["Model"];}).keys();
+  var uniqueModel = d3.map(filteredData, function(d){return d["Model"];}).keys().sort(d3.ascending);
   d3.select("#exampleFormControlSelect2").selectAll("option").remove()
   d3.select("#exampleFormControlSelect2").append("option").text("Select Model")
   d3.select("#exampleFormControlSelect2").selectAll("option")
@@ -73,7 +73,7 @@ function selectedMake() {
   .text(function(d){return d;})
   .attr("value",function(d){return d;});
   
-  var uniqueYear = d3.map(filteredData, function(d){return d["Year"];}).keys();
+  var uniqueYear = d3.map(filteredData, function(d){return d["Year"];}).keys().sort(d3.ascending);
   d3.select("#exampleFormControlSelect3").selectAll("option").remove()
   d3.select("#exampleFormControlSelect3").append("option").text("Select Year")
   d3.select("#exampleFormControlSelect3").selectAll("option")
@@ -84,7 +84,7 @@ function selectedMake() {
   .text(function(d){return d;})
   .attr("value",function(d){return d;})
 
-  console.log(filteredData) 
+  //console.log(filteredData) 
   
   // Map Pins below
   // removes all layers from map (to reset on selection change)
@@ -100,7 +100,7 @@ function selectedMake() {
   for (var i = 0; i < filteredData.length; i++) {
     // Add a new marker to the cluster group and bind a pop-up
     markers.addLayer(L.marker([filteredData[i]["lat"], filteredData[i]["lng"]])
-      .bindPopup("<center><h6>"+filteredData[i]["Make"]+" "+filteredData[i]["Model"]+" "+filteredData[i]["Year"]+"</center></h6><hr><h6><center> $"+d3.format(",")(filteredData[i]["craigslist_price"])+" MPG"+filteredData[i]["mpg"]+"</center></h6>"));
+      .bindPopup("<center><h6>"+filteredData[i]["Make"]+" "+filteredData[i]["Model"]+" "+filteredData[i]["Year"]+"</center></h6><hr><h6><center> $"+d3.format(",")(filteredData[i]["craigslist_price"])+" MPG "+filteredData[i]["mpg"]+"</center></h6>"));
     }  // Add our marker cluster layer to the map      
   myMap.addLayer(markers);
 
@@ -171,7 +171,7 @@ function selectedModel() {
   var elementValue = d3.select(this).property("value");
   var filteredData = myData.filter(row => row["Model"] === elementValue);
       
-  var uniqueYear = d3.map(filteredData, function(d){return d["Year"];}).keys();
+  var uniqueYear = d3.map(filteredData, function(d){return d["Year"];}).keys().sort(d3.ascending);
   d3.select("#exampleFormControlSelect3").selectAll("option").remove()
   d3.select("#exampleFormControlSelect3").append("option").text("Select Year")
   d3.select("#exampleFormControlSelect3").selectAll("option")
@@ -182,7 +182,7 @@ function selectedModel() {
   .text(function(d){return d;})
   .attr("value",function(d){return d;})
 
-  console.log(filteredData) 
+  //console.log(filteredData) 
   
   // Map Pins below
   // removes all layers from map (to reset on selection change)
@@ -198,7 +198,7 @@ function selectedModel() {
   for (var i = 0; i < filteredData.length; i++) {
     // Add a new marker to the cluster group and bind a pop-up
     markers.addLayer(L.marker([filteredData[i]["lat"], filteredData[i]["lng"]])
-      .bindPopup("<center><h6>"+filteredData[i]["Make"]+" "+filteredData[i]["Model"]+" "+filteredData[i]["Year"]+"</center></h6><hr><h6><center> $"+d3.format(",")(filteredData[i]["craigslist_price"])+" MPG"+filteredData[i]["mpg"]+"</center></h6>"));
+      .bindPopup("<center><h6>"+filteredData[i]["Make"]+" "+filteredData[i]["Model"]+" "+filteredData[i]["Year"]+"</center></h6><hr><h6><center> $"+d3.format(",")(filteredData[i]["craigslist_price"])+" MPG "+filteredData[i]["mpg"]+"</center></h6>"));
     }  // Add our marker cluster layer to the map      
   myMap.addLayer(markers);
 
@@ -234,16 +234,14 @@ function selectedYear() {
     d3.select("#exampleFormControlSelect1").property("value"):
     d3.select("#exampleFormControlSelect2").property("value");
 
-  console.log(controlValue)
+  //console.log(controlValue)
 
   //This conditional exists in case the user selects Make & Year but not Model
   var filteredData = (d3.select("#exampleFormControlSelect2").property("value") === "Select Model") ?
     myData.filter(row => row["Make"] === controlValue):
     myData.filter(row => row["Model"] === controlValue);
 
-  console.log(filteredData)
   var mmyData = filteredData.filter(row => row["Year"] === +elementValue);     
-  console.log(mmyData)
     
   // Map Pins below
   // removes all layers from map (to reset on selection change)
@@ -259,7 +257,7 @@ function selectedYear() {
   for (var i = 0; i < mmyData.length; i++) {
     // Add a new marker to the cluster group and bind a pop-up
     markers.addLayer(L.marker([mmyData[i]["lat"], mmyData[i]["lng"]])
-      .bindPopup("<center><h6>"+mmyData[i]["Make"]+" "+mmyData[i]["Model"]+" "+mmyData[i]["Year"]+"</center></h6><hr><h6><center> $"+d3.format(",")(mmyData[i]["craigslist_price"])+" MPG"+mmyData[i]["mpg"]+"</center></h6>"));
+      .bindPopup("<center><h6>"+mmyData[i]["Make"]+" "+mmyData[i]["Model"]+" "+mmyData[i]["Year"]+"</center></h6><hr><h6><center> $"+d3.format(",")(mmyData[i]["craigslist_price"])+" MPG "+mmyData[i]["mpg"]+"</center></h6>"));
     }  // Add our marker cluster layer to the map      
   myMap.addLayer(markers);
 
@@ -275,6 +273,7 @@ function selectedYear() {
   var gaugeText = (d3.select("#exampleFormControlSelect2").property("value") === "Select Model") ?
     `Avg. MPG<br>${elementValue} ${controlValue}`:
     `Avg. MPG<br>${elementValue} ${makeValue} ${controlValue}`
+    
   var data2 = [
     {
       type: "indicator",
