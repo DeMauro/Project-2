@@ -7,7 +7,7 @@ var tile = L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?
   tileSize: 512,
   maxZoom: 18,
   zoomOffset: -1,
-  id: 'mapbox/streets-v11',
+  id: 'mapbox/satellite-streets-v10',
   accessToken: API_KEY
 }).addTo(myMap)
 
@@ -226,11 +226,22 @@ function selectedModel() {
 
 d3.select("#exampleFormControlSelect2").on("change", selectedModel);
 
-//*****Year Function Starts *************/
+//*****Year Function Starts *************
 function selectedYear() {
   var elementValue = d3.select(this).property("value");
-  var modelValue = d3.select("#exampleFormControlSelect2").property("value");
-  var filteredData = myData.filter(row => row["Model"] === modelValue);
+  //This conditional exists in case the user selects Make & Year but not Model
+  var controlValue =  (d3.select("#exampleFormControlSelect2").property("value") === "Select Model") ?
+    d3.select("#exampleFormControlSelect1").property("value"):
+    d3.select("#exampleFormControlSelect2").property("value");
+
+  console.log(controlValue)
+
+  //This conditional exists in case the user selects Make & Year but not Model
+  var filteredData = (d3.select("#exampleFormControlSelect2").property("value") === "Select Model") ?
+    myData.filter(row => row["Make"] === controlValue):
+    myData.filter(row => row["Model"] === controlValue);
+
+  console.log(filteredData)
   var mmyData = filteredData.filter(row => row["Year"] === +elementValue);     
   console.log(mmyData)
     
@@ -260,13 +271,16 @@ function selectedYear() {
   // Calculating the average MPG
   var averageMpg = total / mmyData.length;
 
-  var makeValue = d3.select("#exampleFormControlSelect1").property("value");  
+  var makeValue = d3.select("#exampleFormControlSelect1").property("value");
+  var gaugeText = (d3.select("#exampleFormControlSelect2").property("value") === "Select Model") ?
+    `Avg. MPG<br>${elementValue} ${controlValue}`:
+    `Avg. MPG<br>${elementValue} ${makeValue} ${controlValue}`
   var data2 = [
     {
       type: "indicator",
       mode: "gauge+number",
       value: averageMpg,
-      title: { text: `Avg. MPG<br>${elementValue} ${makeValue} ${modelValue}`},
+      title: gaugeText,
       gauge: {
         bar: { color: "red"},  
       }
