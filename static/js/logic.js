@@ -38,7 +38,7 @@ Plotly.newPlot('viz-three', data2, layout2);
 var data = [
   {
     type: "bar",
-    x: [0, 0, 0, 0, 0],
+    x: [20000, 10000, 15000, 6000, 2500],
     y: ["model1", "model2", "model3", "model4", "model5"],
     orientation: "h",
     width: 1,
