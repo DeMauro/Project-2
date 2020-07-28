@@ -24,9 +24,13 @@ var data2 = [
     }
   ];
   
+  //use d3 to get the size of the parent container element, then size the width and heigh to prevent overlap
+  var chartContainer = d3.select("#viz-three").node().getBoundingClientRect();
   var layout2 = {
-    autosize: true,
-    };     
+    width: chartContainer.width,
+    height: chartContainer.height,
+    pad: 10,
+  }; 
 
 Plotly.newPlot('viz-three', data2, layout2);
 
@@ -37,7 +41,7 @@ var data = [
     x: [0, 0, 0, 0, 0],
     y: ["model1", "model2", "model3", "model4", "model5"],
     orientation: "h",
-    width: 0.1,
+    width: 1,
   },
 ];
 
@@ -105,12 +109,17 @@ function selectedMake() {
   myMap.addLayer(markers);
 
   // capturing Average MPG's
-  var total = 0;
-  for(var i = 0; i < filteredData.length; i++) {
-      total += filteredData[i]["mpg"];
-  }
+  // var total = 0;
+  // for(var i = 0; i < filteredData.length; i++) {
+  //     total += filteredData[i]["mpg"];
+  // }
+
+  //LoDash version...way less code using the _.mean method!
+  var mpgs = filteredData.map((data) => data["mpg"]);
+  var averageMpg = _.mean(mpgs);
+
   // Calculating the average MPG
-  var averageMpg = total / filteredData.length;
+  // var averageMpg = total / filteredData.length;
   var data2 = [
     {
       type: "indicator",
@@ -142,8 +151,8 @@ function selectedMake() {
     averagePrices.push(averagePrice);
   });
 
-  xValues = averagePrices.slice(0, 5);
-  yValues = uniqueModel.slice(0, 5);
+  xValues = averagePrices;
+  yValues = uniqueModel;
   // Bar chat (thin) for Avg cost by model
   var data = [
     {
@@ -151,7 +160,7 @@ function selectedMake() {
       x: xValues,
       y: yValues,
       orientation: "h",
-      width: 0.1,
+      width: 1,
     },
   ];
 
@@ -159,7 +168,7 @@ function selectedMake() {
     autosize: true,
     title: `Average Cost - ${elementValue}`,
     xaxis: { title: "$ Avg. Cost" },
-    // yaxis: { title: "Models" },
+    yaxis: { automargin: true},
   };
   Plotly.newPlot("viz-two", data, layout);  
 } //end function all reactive inside
@@ -203,12 +212,17 @@ function selectedModel() {
   myMap.addLayer(markers);
 
   // capturing Average MPG's
-  var total = 0;
-  for(var i = 0; i < filteredData.length; i++) {
-      total += filteredData[i]["mpg"];
-  }
+  // var total = 0;
+  // for(var i = 0; i < filteredData.length; i++) {
+  //     total += filteredData[i]["mpg"];
+  // }
+
+  //LoDash version...way less code using the _.mean method!
+  var mpgs = filteredData.map((data) => data["mpg"]);
+  var averageMpg = _.mean(mpgs);
+
   // Calculating the average MPG
-  var averageMpg = total / filteredData.length;
+  // var averageMpg = total / filteredData.length;
   var makeValue = d3.select("#exampleFormControlSelect1").property("value");
   var data2 = [
     {
@@ -262,12 +276,17 @@ function selectedYear() {
   myMap.addLayer(markers);
 
   // capturing Average MPG's
-  var total = 0;
-  for(var i = 0; i < mmyData.length; i++) {
-      total += mmyData[i]["mpg"];
-  }
+  // var total = 0;
+  // for(var i = 0; i < mmyData.length; i++) {
+  //     total += mmyData[i]["mpg"];
+  // }
+
+  //LoDash version...way less code using the _.mean method!
+  var mpgs = mmyData.map((data) => data["mpg"]);
+  var averageMpg = _.mean(mpgs);
+
   // Calculating the average MPG
-  var averageMpg = total / mmyData.length;
+  // var averageMpg = total / mmyData.length;
 
   var makeValue = d3.select("#exampleFormControlSelect1").property("value");
   var gaugeText = (d3.select("#exampleFormControlSelect2").property("value") === "Select Model") ?
