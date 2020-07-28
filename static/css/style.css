@@ -72,11 +72,17 @@ h5 {
 .viz-container-left {
   margin-left: -4%;
   margin-right: 2%;
+  padding-top: 10px;
 }
 .viz-container-right {
   margin-left: 2%;
   margin-right: -6%;
-  overflow: scroll;
+  overflow-y: scroll;
+}
+.viz-container-right::-webkit-scrollbar {
+  padding-right: 10px;
+  scrollbar-width: 5px;
+  /* background-color: grey; */
 }
 /* #viz-two {
   width: 90%;
