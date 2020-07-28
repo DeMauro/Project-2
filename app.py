@@ -17,8 +17,6 @@ connection = psycopg2.connect(user="USER",
 cursor = connection.cursor()
 
 # create route that renders index.html template
-
-
 @app.route("/")
 def example():
     postgreSQL_select_Query = "SELECT cl.Make, cl.Model, cl.Year, cl.craigslist_price, cl.lat, cl.lng, c.mpg FROM craigs_list cl JOIN cars c on cl.make = c.make AND cl.model = c.model AND cl.year = c.year"
@@ -38,7 +36,6 @@ def example():
         car_data.append(car_dics.copy())
 
     return render_template("index.html", car_data=car_data)
-
 
 if __name__ == "__main__":
     app.run(debug=True)
