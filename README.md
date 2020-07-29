@@ -3,9 +3,9 @@
 
 
 Contributors: 
-  -TJ Wilson
-  -Frank DeMauro
-  -Stephen Marshall
+  (1) TJ Wilson
+  (2) Frank DeMauro
+  (3) Stephen Marshall
 
 
 Purpose:
