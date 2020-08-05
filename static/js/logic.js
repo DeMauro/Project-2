@@ -50,9 +50,6 @@ var layout = {
 Plotly.newPlot("viz-two", data, layout);
 
 // create a list of all car makes
-
-//string[0].toUpperCase() + string.substring(1)
-
 var uniqueMake = d3.map(myData, function(d){return d["Make"];}).keys().sort(d3.ascending);
 // Add unique auto makes to the dropdown
 d3.select("#exampleFormControlSelect1").selectAll("option")
